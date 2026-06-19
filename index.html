@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Камиля Туреханова — Профессиональный профиль</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0F2044;
+      --navy-light: #1A3260;
+      --accent: #C9A84C;
+      --accent-light: #E8C96A;
+      --gray-bg: #F7F8FC;
+      --text: #1C2340;
+      --text-light: #5A6484;
+      --white: #ffffff;
+      --border: #E2E6F0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ─────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+      padding: 72px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.08);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hero-initial {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--navy);
+      font-size: 2.2rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 1.05rem;
+      color: var(--accent-light);
+      font-weight: 500;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .hero-summary {
+      max-width: 680px;
+      margin: 0 auto 32px;
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.7;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+    }
+
+    /* ── STATS ─────────────────────────────────── */
+    .stats {
+      background: var(--accent);
+      padding: 28px 24px;
+    }
+
+    .stats-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--navy);
+      opacity: 0.75;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ── SECTION ────────────────────────────────── */
+    .section {
+      padding: 60px 24px;
+    }
+
+    .section-alt {
+      background: var(--gray-bg);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px; left: 0;
+      width: 40px; height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ── EXPERTISE GRID ─────────────────────────── */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .expertise-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .expertise-card:hover {
+      box-shadow: 0 6px 24px rgba(15,32,68,0.1);
+      transform: translateY(-2px);
+    }
+
+    .expertise-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .expertise-card p {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ── RESULTS ─────────────────────────────────── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .result-card {
+      background: var(--white);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 18px 20px;
+      box-shadow: 0 2px 12px rgba(15,32,68,0.06);
+    }
+
+    .result-card p {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── TIMELINE ─────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -29px; top: 6px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-company {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .timeline-period {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(201,168,76,0.12);
+      padding: 3px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    .timeline-industry {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy-light);
+      padding: 2px 9px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-direction {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .timeline-bullets li {
+      font-size: 0.87rem;
+      color: var(--text);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .timeline-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* ── CONTACT ─────────────────────────────────── */
+    .contact-section {
+      background: var(--navy);
+      color: var(--white);
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    .contact-section .section-label {
+      color: var(--accent-light);
+    }
+
+    .contact-section .section-title {
+      color: var(--white);
+    }
+
+    .contact-section .section-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .contact-item a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ─────────────────────────────────── */
+    footer {
+      background: #080F1E;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 16px 24px;
+      font-size: 0.78rem;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-value { font-size: 1.6rem; }
+      .section-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-initial">КТ</div>
+    <h1>Камиля Туреханова</h1>
+    <p class="hero-title">Повышение операционной эффективности&nbsp;/&nbsp;Управление бизнес-процессами и ВНД</p>
+    <p class="hero-summary">
+      Руководитель высшего звена с более чем 18-летним опытом в области управления бизнес-процессами,
+      организационного проектирования и разработки корпоративной методологии в международных компаниях
+      отраслей добычи полезных ископаемых, FMCG и телекоммуникаций.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">BIG4: PwC · Deloitte</span>
+      <span class="tag">Gold Mining</span>
+      <span class="tag">Telecom · Beeline</span>
+      <span class="tag">FMCG</span>
+      <span class="tag">SAP S/4HANA</span>
+      <span class="tag">ISO</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-value">18+</div>
+        <div class="stat-label">лет опыта</div>
+      </div>
+      <div>
+        <div class="stat-value">4</div>
+        <div class="stat-label">индустрии</div>
+      </div>
+      <div>
+        <div class="stat-value">−10%</div>
+        <div class="stat-label">затраты на персонал</div>
+      </div>
+      <div>
+        <div class="stat-value">7→5</div>
+        <div class="stat-label">уровней управления</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Ключевые компетенции</div>
+      <div class="section-title">Экспертиза</div>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <div class="expertise-icon">📈</div>
+          <p>Повышение операционной эффективности</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">⚙️</div>
+          <p>Управление, реинжиниринг и автоматизация бизнес-процессов</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">🔄</div>
+          <p>Трансформация бизнеса</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">📋</div>
+          <p>Разработка внутренних нормативных и методологических документов</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">🏗️</div>
+          <p>Организационный дизайн, оптимизация расходов на персонал</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">🎯</div>
+          <p>Управление эффективностью деятельности персонала</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">🛡️</div>
+          <p>Разработка матриц рисков и контролей</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">📊</div>
+          <p>Разработка матриц ответственности RACI</p>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">✅</div>
+          <p>Внедрение и сопровождение стандартов ISO (качество, ПБиОТ, экология)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-label">Достижения</div>
+      <div class="section-title">Результаты для бизнеса</div>
+      <div class="results-grid">
+        <div class="result-card">
+          <p>Снижение затрат на персонал на <strong>10%</strong> в рамках проекта по оптимизации численности</p>
+        </div>
+        <div class="result-card">
+          <p>Делейринг: сокращение уровней управления с <strong>7 до 5</strong> без потери управляемости</p>
+        </div>
+        <div class="result-card">
+          <p>Сокращение времени выполнения бизнес-процессов за счёт оптимизации и автоматизации</p>
+        </div>
+        <div class="result-card">
+          <p>Единая архитектура и стандартизация бизнес-процессов, формирование процессной культуры</p>
+        </div>
+        <div class="result-card">
+          <p>Повышение прозрачности ответственности через внедрение матриц RACI</p>
+        </div>
+        <div class="result-card">
+          <p>Усиление внутреннего контроля путём определения рисков и разработки контрольных процедур</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Карьерный путь</div>
+      <div class="section-title">Опыт работы</div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <span class="timeline-company">ТОО «Baiuly Capital»</span>
+            <span class="timeline-period">2026 — настоящее время</span>
+          </div>
+          <span class="timeline-industry">FMCG</span>
+          <p class="timeline-direction">Управление бизнес-процессами · Управление ВНД</p>
+          <ul class="timeline-bullets">
+            <li>Разработка, внедрение и развитие методологии процессного управления по Группе компаний</li>
+            <li>Разработка архитектуры бизнес-процессов Группы</li>
+            <li>Внедрение инструментов визуализации, формирование процессной культуры</li>
+            <li>Управление системой ВНД: инвентаризация, шаблоны, требования</li>
+            <li>Управление Процессным офисом, взаимодействие с ключевыми стейкхолдерами</li>
+            <li>Разработка целевых бизнес-процессов с учётом автоматизации в SAP S/4HANA</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <span class="timeline-company">АО «АК Алтыналмас»</span>
+            <span class="timeline-period">2017 — 2023</span>
+          </div>
+          <span class="timeline-industry">Gold Mining</span>
+          <p class="timeline-direction">Управление бизнес-процессами · ВНД · ISO · Управление выгодами</p>
+          <ul class="timeline-bullets">
+            <li>Разработка и внедрение методологии процессного управления с нуля</li>
+            <li>Идентификация и разработка бизнес-процессов, оценка эффективности, реинжиниринг</li>
+            <li>Разработка архитектуры, дерева БП и матриц RACI</li>
+            <li>Управление внутренней нормативной документацией</li>
+            <li>Внедрение ИСМ, сопровождение внутренних и сертификационных аудитов</li>
+            <li>Внедрение BI-инструментов и построение управленческой отчётности</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <span class="timeline-company">ТОО «Кар-Тел» (Beeline)</span>
+            <span class="timeline-period">2014 — 2017</span>
+          </div>
+          <span class="timeline-industry">Telecom</span>
+          <p class="timeline-direction">Управление бизнес-процессами · ВНД · Управление эффективностью персонала</p>
+          <ul class="timeline-bullets">
+            <li>Идентификация и регламентация бизнес-процессов операционного блока</li>
+            <li>Делейринг операционального блока: сокращение уровней управления</li>
+            <li>Реализация проекта по оптимизации численности персонала</li>
+            <li>Управление полным циклом результативности: KPI, постановка целей, оценка</li>
+            <li>Оценка должностей по международной системе MERCER</li>
+            <li>Разработка стандартизированных HR-процессов, внедрение KPI бизнес-процессов</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <span class="timeline-company">PwC · Deloitte</span>
+            <span class="timeline-period">2007 — 2012</span>
+          </div>
+          <span class="timeline-industry">BIG4</span>
+          <p class="timeline-direction">Повышение операционной эффективности · Регламентация бизнес-процессов</p>
+          <ul class="timeline-bullets">
+            <li>Полный функциональный анализ оргструктур и систем управления для государственных органов</li>
+            <li>Разработка методологии консолидации финансовой и управленческой отчётности (ГМК)</li>
+            <li>Разработка целевой модели IT-процессов для коммерческого банка</li>
+            <li>Разработка учётной политики по МСФО для национальной нефтяной компании</li>
+            <li>Анализ документации на соответствие требованиям Национального банка и РФЦА</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="section-label">Контакты</div>
+      <div class="section-title">Связаться со мной</div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span>✉️</span>
+          <a href="mailto:tkamilyagh@gmail.com">tkamilyagh@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span>💼</span>
+          <a href="https://github.com/kturekhanova" target="_blank">github.com/kturekhanova</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Камиля Туреханова. Все права защищены.
+  </footer>
+
+</body>
+</html>
