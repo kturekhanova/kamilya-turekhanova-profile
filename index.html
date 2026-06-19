@@ -34,7 +34,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Scroll animations — enabled only in real browser via JS adding .js-animations class */
 
     /* ══ HERO ══════════════════════════════════════════ */
     .hero {
@@ -82,7 +81,7 @@
       justify-content: center;
       position: relative;
       z-index: 1;
-      margin-left: -80px; /* bleeds over photo */
+      margin-left: 0;
     }
 
     .hero-name {
@@ -521,7 +520,7 @@
 
     <div class="hero-content">
       <h1 class="hero-name">Камиля<br/>Туреханова</h1>
-      <p class="hero-title">Повышение операционной эффективности&nbsp;·<br/>Управление бизнес-процессами и ВНД</p>
+      <p class="hero-title">Операционная эффективность&nbsp;· Управление и автоматизация бизнес-процессов&nbsp;· Трансформация бизнеса</p>
       <div class="hero-divider"></div>
       <p class="hero-bio">
         Руководитель высшего звена с более чем 18-летним опытом в области
@@ -529,12 +528,14 @@
         корпоративной методологии — добыча, FMCG, телекоммуникации.
       </p>
       <div class="hero-tags">
-        <span class="tag">BIG4 · PwC · Deloitte</span>
+        <span class="tag">PwC · Deloitte</span>
         <span class="tag">Gold Mining</span>
-        <span class="tag">Beeline</span>
+        <span class="tag">Telecom · Beeline</span>
         <span class="tag">FMCG</span>
         <span class="tag">SAP S/4HANA</span>
         <span class="tag">ISO</span>
+        <span class="tag">BI Analytics</span>
+        <span class="tag">RACI</span>
       </div>
     </div>
 
@@ -631,6 +632,20 @@
           <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
         <span class="exp-text">Внедрение и сопровождение стандартов ISO (качество, ПБиОТ, экология)</span>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <span class="exp-text">BI-аналитика и построение управленческой отчётности</span>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <span class="exp-text">Разработка и внедрение методологии процессного управления</span>
       </div>
 
     </div>
@@ -779,35 +794,5 @@
 
 <footer>© 2026 Камиля Туреханова. Все права защищены.</footer>
 
-<script>
-  // Scroll reveal — activate only after first user interaction to avoid screenshot issues
-  let activated = false;
-  function activateReveal() {
-    if (activated) return;
-    activated = true;
-    document.removeEventListener('scroll', activateReveal);
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) return; // already visible, skip
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(18px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      io.observe(el);
-    });
-    document.querySelectorAll('.reveal.in').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    });
-  }
-  document.addEventListener('scroll', activateReveal, { passive: true });
-</script>
 </body>
 </html>
